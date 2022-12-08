@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import Card from "../../UI/Card/Card.jsx";
 import Button from "../../UI/Button/Button.jsx";
 import ErrorModal from "../../UI/ErrorModal/ErrorModal.jsx";
+import Wrapper from "../../Helpers/Wrapper.jsx";
 
 const AddUser = props => {
     const [enteredUsername, setEnteredUsername] = useState('');
@@ -44,24 +45,26 @@ const AddUser = props => {
     }
 
     return (
-        <Card className={classes.input}>
-            <form onSubmit={handleAddUser}>
-                <label htmlFor="username">Username</label>
-                <input
-                    id="username"
-                    type="text"
-                    value={enteredUsername}
-                    onChange={handleUsernameChange}
-                />
-                <label htmlFor="age">Age</label>
-                <input
-                    id="age"
-                    type="number"
-                    value={enteredAge}
-                    onChange={handleAgeChange}
-                />
-                <Button type="submit">Add User</Button>
-            </form>
+        <Wrapper>
+            <Card className={classes.input}>
+                <form onSubmit={handleAddUser}>
+                    <label htmlFor="username">Username</label>
+                    <input
+                        id="username"
+                        type="text"
+                        value={enteredUsername}
+                        onChange={handleUsernameChange}
+                    />
+                    <label htmlFor="age">Age</label>
+                    <input
+                        id="age"
+                        type="number"
+                        value={enteredAge}
+                        onChange={handleAgeChange}
+                    />
+                    <Button type="submit">Add User</Button>
+                </form>
+            </Card>
             {
                 error && (
                     <ErrorModal
@@ -71,7 +74,7 @@ const AddUser = props => {
                     />
                 )
             }
-        </Card>
+        </Wrapper>
     )
 }
 
