@@ -5,7 +5,7 @@ import Button from "../Button/Button.jsx";
 
 const ErrorModal = props => {
     return (
-        <div>
+        <>
             <div
                 className={classes.backdrop}
                 onClick={props.onCloseError}
@@ -21,7 +21,7 @@ const ErrorModal = props => {
                     <Button onClick={props.onCloseError}>Ok</Button>
                 </footer>
             </Card>
-        </div>
+        </>
     )
 }
 
